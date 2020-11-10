@@ -1,29 +1,66 @@
-# ratio
+# tile
 
-> Hook and HOC component to keep scale of components.
+> Tile Wrapper Componenet and Clickable HOC.
 
-[![NPM](https://img.shields.io/npm/v/ratio.svg)](https://www.npmjs.com/package/ratio) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![NPM](https://img.shields.io/npm/v/tile.svg)](https://www.npmjs.com/package/tile) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ## Install
 
 ```bash
-npm install --save @focusinlab/ratio
+npm install --save @focusinlab/tile
 ```
 
 ## Usage
 
 ```jsx
-import React, { Component } from 'react'
+import React from 'react'
 
-import withRatio from 'ratio'
+import styled from 'styled-components'
+import { ClickableTile, BaseTile } from 'tile'
 
-const MyDivA = () => <div>Div 1</div>
-const DivWithRatioA = withRatio({ ratio: '1x1', className: 'mydiv' })(MyDivA)
-
-class Example extends Component {
-  render() {
-    return <DivWithRatioA />
+const CustomClickableDivTile = ({ data, ...others }) => {
+  const clickHandler = () => {
+    alert(`Hello : ${data.text}`)
   }
+
+  const render = (dataToDisplay) => (
+    <div>custom tile with text: {dataToDisplay.text}</div>
+  )
+
+  return (
+    <ClickableTile
+      ratio='1x1'
+      clickHandler={clickHandler}
+      render={render}
+      data={data}
+      {...others}
+    />
+  )
+}
+
+const StyledCustomTile = styled(CustomClickableDivTile)`
+  background: blue;
+  color: white;
+  align-items: center;
+  justify-content: center;
+`
+
+const CustomAnchorTile = ({ data, ...others }) => {
+  const render = () => <a href='/'>Hola anchor</a>
+  return <BaseTile ratio='1x1' render={render} {...others} />
+}
+
+const App = () => {
+  return (
+    <div className='app'>
+      <div className='col'>
+        <CustomAnchorTile />
+      </div>
+      <div className='col'>
+        <StyledCustomTile data={{ text: 'foo' }} />
+      </div>
+    </div>
+  )
 }
 ```
 

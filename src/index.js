@@ -1,3 +1,4 @@
-import withRatio from './withRatio'
+import ClickableTile from './ClickableTile'
+import BaseTile from './BaseTile'
 
-export default withRatio
+export { ClickableTile, BaseTile }

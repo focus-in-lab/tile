@@ -1,5 +1,5 @@
 {
-  "name": "ratio-example",
+  "name": "tile-example",
   "homepage": ".",
   "version": "0.0.0",
   "private": true,
@@ -13,7 +13,8 @@
     "react": "link:../node_modules/react",
     "react-dom": "link:../node_modules/react-dom",
     "react-scripts": "link:../node_modules/react-scripts",
-    "ratio": "link:.."
+    "styled-components": "^5.2.1",
+    "tile": "link:.."
   },
   "devDependencies": {
     "@babel/plugin-syntax-object-rest-spread": "^7.8.3"

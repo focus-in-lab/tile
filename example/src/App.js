@@ -1,20 +1,48 @@
 import React from 'react'
 
-import withRatio from 'ratio'
-import 'ratio/dist/index.css'
+import styled from 'styled-components'
+import { ClickableTile, BaseTile } from 'tile'
+
+const CustomClickableDivTile = ({ data, ...others }) => {
+  const clickHandler = () => {
+    alert(`Hello : ${data.text}`)
+  }
+
+  const render = (dataToDisplay) => (
+    <div>custom tile with text: {dataToDisplay.text}</div>
+  )
+
+  return (
+    <ClickableTile
+      ratio='1x1'
+      clickHandler={clickHandler}
+      render={render}
+      data={data}
+      {...others}
+    />
+  )
+}
+
+const StyledCustomTile = styled(CustomClickableDivTile)`
+  background: blue;
+  color: white;
+  align-items: center;
+  justify-content: center;
+`
+
+const CustomAnchorTile = ({ data, ...others }) => {
+  const render = () => <a href='/'>Hola anchor</a>
+  return <BaseTile ratio='1x1' render={render} {...others} />
+}
 
 const App = () => {
-  const MyDivA = () => <div>Div 1</div>
-  const MyDivB = () => <div>Div 2</div>
-  const DivWithRatioA = withRatio({ ratio: '1x1', className: 'mydiv' })(MyDivA)
-  const DivWithRatioB = withRatio({ ratio: '1x1', className: 'mydiv' })(MyDivB)
   return (
     <div className='app'>
       <div className='col'>
-        <DivWithRatioA />
+        <CustomAnchorTile />
       </div>
       <div className='col'>
-        <DivWithRatioB />
+        <StyledCustomTile data={{ text: 'foo' }} />
       </div>
     </div>
   )
