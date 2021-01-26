@@ -1,7 +1,7 @@
 import React from 'react'
 
 const withClickableTile = (props) => (WrappedComponent) => () => {
-  const { clickHandler, ...others } = props
+  const { clickHandler, data, render, ...others } = props
 
   return (
     <div
@@ -11,7 +11,7 @@ const withClickableTile = (props) => (WrappedComponent) => () => {
       tabIndex={0}
       {...others}
     >
-      <WrappedComponent {...others} />
+      <WrappedComponent {...others} {...data} {...render} />
     </div>
   )
 }
