@@ -11,7 +11,7 @@ const withClickableTile = (props) => (WrappedComponent) => () => {
       tabIndex={0}
       {...others}
     >
-      <WrappedComponent {...others} {...data} {...render} />
+      <WrappedComponent {...others} data={data} render={render} />
     </div>
   )
 }
