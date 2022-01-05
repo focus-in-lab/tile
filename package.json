@@ -1,13 +1,13 @@
 {
   "name": "@focusinlab/tile",
-  "version": "1.0.3",
-  "description": "Tile Wrapper Componenet and Clickable HOC.",
+  "version": "2.0.0",
+  "description": "Box customizable component",
   "author": "focus-in-lab",
   "license": "MIT",
   "repository": "focus-in-lab/tile",
   "main": "dist/index.js",
   "module": "dist/index.modern.js",
-  "source": "src/index.js",
+  "source": "src/index.jsx",
   "engines": {
     "node": ">=10"
   },
@@ -46,12 +46,10 @@
     "microbundle-crl": "^0.13.10",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.0.4",
+    "prop-types": "^15.7.2",
     "react-scripts": "^3.4.1"
   },
   "files": [
     "dist"
-  ],
-  "dependencies": {
-    "@focusinlab/ratio": "^1.0.2"
-  }
+  ]
 }
