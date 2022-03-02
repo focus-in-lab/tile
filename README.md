@@ -12,48 +12,21 @@ npm install --save @focusinlab/tile
 
 ## Props:
 
-| Attribute     | Required | Type                                                     | Default |
-| ------------- | -------- | -------------------------------------------------------- | ------- |
-| type          | No       | String                                                   | div     |
-| styledBox     | Yes      | Styled css                                               |         |
-| styledContent | Yes      | Styled css                                               |         |
-| dataTestId    | Yes      | String                                                   |         |
-| dataRatio     | No       | "default", "cubeDouble", "cubeFull", "rectangle", "cube" | "cube"  |
-| children      | Yes      | TileContent                                              |         |
+| Attribute  | Required | Type                                         | Default |
+| ---------- | -------- | -------------------------------------------- | ------- |
+| dataTestId | Yes      | String                                       |         |
+| children   | Yes      | React Fragment                               |         |
+| type       | No       | String                                       | div     |
+| dataRatio  | No       | "cube","cubeDouble", "cubeFull", "rectangle" | "cube"  |
 
 ## Usage
 
-Creating a default box (div)
-
 ```javascript
-// path/to/styles.jsx
-import { css } from 'styled-components'
-
-export const StyledBox = {
-  blue: css`
-    background-color: #0b5394;
-  `
-}
-
-export const StyledContent = {
-  nav: css`
-    .foo {
-      color: #fff;
-      padding: 1px;
-    }
-  `
-}
-```
-
-```javascript
-import { StyledBox, StyledContent } from 'path/to/styles.jsx'
 
 const BlueTile = () => {
   return (
     <Tile
       ratio='cube'
-      styledBox={StyledBox.blue}
-      styledContent={StyledContent.nav}
       dataTestId="my-blue-tile"
     >
       <>
@@ -67,16 +40,12 @@ const BlueTile = () => {
 Creating an "anchor" box
 
 ```javascript
-import { StyledBox, StyledContent } from 'path/to/styles.jsx'
-
 const ClickableTile = () => {
   return (
     <Tile
       ratio='cube'
       type='a'
       onClick={clickHandler}
-      styledBox={StyledBox.blue}
-      styledContent={StyledContent.nav}
       dataTestId="my-clickable-tile"
     >
       <>

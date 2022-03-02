@@ -1,7 +1,7 @@
 import React, { memo } from 'react'
 
-import { css } from 'styled-components'
 import Tile from 'tile'
+import styles from './app.module.css'
 
 const TileContent = memo(({ data }) => {
   const { content } = data
@@ -16,32 +16,16 @@ const TileContent = memo(({ data }) => {
   )
 })
 
-const StyledBox = {
-  blue: css`
-    background-color: #0b5394;
-  `
-}
-
-const StyledContent = {
-  nav: css`
-    .description {
-      color: #fff;
-      padding: 1px;
-    }
-  `
-}
-
 const BlueTile = () => {
   return (
     <Tile
-      ratio='cube'
-      styledBox={StyledBox.blue}
-      styledContent={StyledContent.nav}
+      ratio='cubeFull'
       dataTestId='my-blue-tile'
+      className={styles.blueTile}
     >
       <TileContent
         data={{
-          content: 'Blue tile'
+          content: 'cube'
         }}
       />
     </Tile>
@@ -54,16 +38,15 @@ const ClickableTile = () => {
   }
   return (
     <Tile
-      ratio='cube'
+      ratio='cubeFull'
       type='a'
       onClick={clickHandler}
-      styledBox={StyledBox.blue}
-      styledContent={StyledContent.nav}
       dataTestId='clickable-tile'
+      className={styles.clickableTile}
     >
       <TileContent
         data={{
-          content: 'clickable tile'
+          content: 'clickable cubeFull'
         }}
       />
     </Tile>
@@ -73,12 +56,46 @@ const ClickableTile = () => {
 const App = () => {
   return (
     <div className='app'>
-      <div className='col'>
+      <div className='row'>
+        <div className='col1'>
+          <BlueTile />
+        </div>
+        <div className='col2'>
+          <ClickableTile />
+        </div>
+      </div>
+
+      <div className='row'>
+        <Tile
+          ratio='rectangle'
+          dataTestId='cube'
+          className={styles.rectangle}
+        >
+          <TileContent
+            data={{
+              content: 'rectangle'
+            }}
+          />
+        </Tile>
+        <Tile
+          ratio='cube'
+          dataTestId='rectangle'
+          className={styles.cube}
+        >
+          <TileContent
+            data={{
+              content: 'cube'
+            }}
+          />
+        </Tile>
+      </div>
+
+      <div className='row'>
+        <BlueTile />
+        <BlueTile />
         <BlueTile />
       </div>
-      <div className='col'>
-        <ClickableTile />
-      </div>
+
     </div>
   )
 }

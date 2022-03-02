@@ -24,9 +24,7 @@ Tile.displayName = 'Tile'
 Tile.propTypes = {
   children: PropTypes.element.isRequired,
   dataTestId: PropTypes.string.isRequired,
-  styledBox: PropTypes.array.isRequired,
-  styledContent: PropTypes.array.isRequired,
-  ratio: PropTypes.string,
+  ratio: PropTypes.oneOf(['cube', 'cubeDouble', 'cubeFull', 'rectangle']),
   type: PropTypes.string
 }
 

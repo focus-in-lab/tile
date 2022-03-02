@@ -1,0 +1,16 @@
+.blueTile {
+  background-color: #0A3556;
+  color: #F8F6F2;
+}
+.clickableTile {
+  background-color: #6A5ADF;
+  color: #FEFEFE;
+}
+.rectangle {
+  background-color: #3B2D60;
+  color: #FEFEFE;
+}
+.cube {
+  background-color: #F7D35C;
+  color: #0b2d78;
+}

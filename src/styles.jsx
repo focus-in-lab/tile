@@ -1,10 +1,6 @@
 import styled, { css } from 'styled-components'
 
 export const RatioVariants = {
-  default: css`
-    width: 33.3333%;
-    aspect-ratio: auto 1 / 1;
-  `,
   cube: css`
     width: 33.3333%;
     aspect-ratio: auto 1 / 1;
@@ -57,7 +53,6 @@ export const BaseTileStyle = css`
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100%;
   overflow: hidden;
   outline: none;
   flex-direction: column;
@@ -96,6 +91,4 @@ export const BaseTileStyle = css`
 
 export const StyledTile = styled.div`
   ${BaseTileStyle};
-  ${({ styledBox }) => styledBox};
-  ${({ styledContent }) => styledContent};
 `
