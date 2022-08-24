@@ -1,3 +1,16 @@
+.tile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  outline: none;
+  flex-direction: column;
+  box-sizing: border-box;
+  position: relative;
+  word-break: break-word;
+  padding: 5px;
+  border: 1px solid #fff;
+}
 .blueTile {
   background-color: #0A3556;
   color: #F8F6F2;

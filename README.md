@@ -14,10 +14,9 @@ npm install --save @focusinlab/tile
 
 | Attribute  | Required | Type                                         | Default |
 | ---------- | -------- | -------------------------------------------- | ------- |
-| dataTestId | Yes      | String                                       |         |
-| children   | Yes      | React Fragment                               |         |
-| type       | No       | String                                       | div     |
-| dataRatio  | No       | "cube","cubeDouble", "cubeFull", "rectangle" | "cube"  |
+| children   | Yes      | React Element | string                       |         |
+| as         | No       | String                                       | div     |
+| ratio      | No       | "cube","cubeDouble", "cubeFull", "rectangle" | "cube"  |
 
 ## Usage
 
@@ -27,11 +26,9 @@ const BlueTile = () => {
   return (
     <Tile
       ratio='cube'
-      dataTestId="my-blue-tile"
+      data-test-id="my-blue-tile"
     >
-      <>
-        <label className="foo">click me</label>
-      <>
+      <label className="foo">click me</label>
     </Tile>
   )
 }
@@ -46,11 +43,9 @@ const ClickableTile = () => {
       ratio='cube'
       type='a'
       onClick={clickHandler}
-      dataTestId="my-clickable-tile"
+      data-test-id="my-clickable-tile"
     >
-      <>
-        <label className="foo">click me</label>
-      <>
+      <label className="foo">click me</label>
     </Tile>
   )
 }

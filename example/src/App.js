@@ -20,8 +20,8 @@ const BlueTile = () => {
   return (
     <Tile
       ratio='cubeFull'
-      dataTestId='my-blue-tile'
-      className={styles.blueTile}
+      className={`${styles.tile} ${styles.blueTile}`}
+      data-test-id='my-blue-tile'
     >
       <TileContent
         data={{
@@ -39,10 +39,10 @@ const ClickableTile = () => {
   return (
     <Tile
       ratio='cubeFull'
-      type='a'
       onClick={clickHandler}
-      dataTestId='clickable-tile'
-      className={styles.clickableTile}
+      data-test-id='clickable-tile'
+      className={`${styles.tile} ${styles.clickableTile}`}
+      as='a'
     >
       <TileContent
         data={{
@@ -68,8 +68,8 @@ const App = () => {
       <div className='row'>
         <Tile
           ratio='rectangle'
-          dataTestId='cube'
-          className={styles.rectangle}
+          data-test-id='cube'
+          className={`${styles.tile} ${styles.rectangle}`}
         >
           <TileContent
             data={{
@@ -77,11 +77,7 @@ const App = () => {
             }}
           />
         </Tile>
-        <Tile
-          ratio='cube'
-          dataTestId='rectangle'
-          className={styles.cube}
-        >
+        <Tile ratio='cube' data-test-id='rectangle' className={styles.cube}>
           <TileContent
             data={{
               content: 'cube'
@@ -95,7 +91,6 @@ const App = () => {
         <BlueTile />
         <BlueTile />
       </div>
-
     </div>
   )
 }
